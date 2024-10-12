@@ -1,7 +1,7 @@
 /* create a web component with the name my-component,
 that proposes to enter a keycode with button in a 3x3 matrix
 */
-export class MyComponent extends HTMLElement {
+export class MyPlayer extends HTMLElement {
   
 
   constructor() {
@@ -11,7 +11,7 @@ export class MyComponent extends HTMLElement {
     <style>
       
     </style>
-    <audio id="player" src="toto.mp3" controls></audio>
+    <audio id="player" src="./assets/audio/CleanGuitarRiff.mp3" controls></audio>
     `;
 
     this.ctx = new AudioContext();
@@ -46,6 +46,10 @@ export class MyComponent extends HTMLElement {
     outputNode.connect(this.ctx.destination);
     
   }
+
+  getContext() {
+    return this.ctx;
+  }
 }
 
-customElements.define('my-component', MyComponent);
+customElements.define('my-player', MyPlayer);

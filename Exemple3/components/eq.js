@@ -1,7 +1,7 @@
 /* create a web component with the name my-component,
 that proposes to enter a keycode with button in a 3x3 matrix
 */
-export class MyComponent extends HTMLElement {
+export class MyEQ extends HTMLElement {
   
 
   constructor() {
@@ -24,7 +24,7 @@ export class MyComponent extends HTMLElement {
 
   setContext(ctx) {
     this.ctx = ctx;
-    this.buildAudioGraph();
+    //this.buildAudioGraph();
   }
 
   defineListeners() {
@@ -32,12 +32,12 @@ export class MyComponent extends HTMLElement {
 
   buildAudioGraph(ctx, sourceNode) {
     // on construit les 6 filtres
-    this.filter1 = ctx.createBiquadFilter();
-    this.filter2 = ctx.createBiquadFilter();
-    this.filter3 = ctx.createBiquadFilter();
-    this.filter4 = ctx.createBiquadFilter();
-    this.filter5 = ctx.createBiquadFilter();
-    this.filter6 = ctx.createBiquadFilter();
+    this.filter1 = this.ctx.createBiquadFilter();
+    this.filter2 = this.ctx.createBiquadFilter();
+    this.filter3 = this.ctx.createBiquadFilter();
+    this.filter4 = this.ctx.createBiquadFilter();
+    this.filter5 = this.ctx.createBiquadFilter();
+    this.filter6 = this.ctx.createBiquadFilter();
     // connect them in series for an eq
     sourceNode.connect(this.filter1);
     this.filter1.connect(this.filter2);
@@ -52,4 +52,4 @@ export class MyComponent extends HTMLElement {
   }
 }
 
-customElements.define('my-component', MyComponent);
+customElements.define('my-eq', MyEQ);
